@@ -1,19 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package View;
+import Modelagem.DAO;
+import Modelagem.Estudantes;
+import Modelagem.RelatorioTXT;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Antonio joao zimila
  */
 public class Devolucao extends javax.swing.JInternalFrame {
-
+   private DefaultTableModel  modelo;
+   private int diaL;
+   private int diahj;
+   private int diferenca;
+   private String controlo;
    
+   public void popularEstudantes(){
+    DAO dao = new DAO();
+    modelo.setNumRows(0);
+    for(Estudantes e: dao.selecTudoEstudantes()){
+    //Controles das datas para marcar como pedente ou em uso
+    diahj=Integer.parseInt(getDateTime().substring(0,2));
+    diaL=Integer.parseInt(e.getDataL().substring(8));
+    diferenca=diahj-diaL;
+     if(diferenca<0){
+        diferenca=diferenca*(-1);
+            }
+     System.out.println("Dia levantamento:."+diaL+" dia hj:."+diahj+" A diferenca e de:."+diferenca);
+    
+    if(diferenca>7||diferenca>14||diferenca>21){
+        controlo="PEDENTE";
+    }else if(diferenca<7||diferenca<14||diferenca<21||diferenca<0){
+        controlo="EM USO";
+    }
+    modelo.addRow(new Object[]{e.getId(),e.getNome(),e.getSexo(),e.getContacto(),e.getResidencia(),
+    e.getTurno(),e.getManual1(),e.getClasse1(),e.getManual2(),e.getClasse2(),e.getDataL(),e.getDataD(),controlo});
+        
+    }
+   }
+   
+   private String getDateTime() {
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	Date date = new Date();
+	return dateFormat.format(date);
+}
+     
+  
     public Devolucao() {
-        initComponents();
+      initComponents();
+     String [] colunas = {"ID","Nome","Sexo","Contacto","Residencia","Turno","Manual_1","Classe_1","Manual_2","Classe_2","Data L","Data D","Controle"};
+     modelo = new DefaultTableModel();
+     modelo.setColumnIdentifiers(colunas);
+     jTable1.setModel(modelo);
     }
 
     /**
@@ -157,7 +201,30 @@ public class Devolucao extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+     int linha = jTable1.getSelectedRow();
+     String status;
+     if(linha!=-1){
+ int id =Integer.parseInt(modelo.getValueAt(linha,0).toString());
+ String nome = modelo.getValueAt(linha,1).toString();
+ String manual1 = modelo.getValueAt(linha,6).toString();
+ String classe1=modelo.getValueAt(linha,7).toString();
+ String manual2=modelo.getValueAt(linha,8).toString();
+ String classe2 = modelo.getValueAt(linha,9).toString();
+ String dataL=modelo.getValueAt(linha,10).toString();
+ String dataD = modelo.getValueAt(linha,11).toString();
+ String controlo=modelo.getValueAt(linha,12).toString();
+ if(controlo.equals("EM USO")){
+     status="DEVOLVIDO A TEMPO UTIL";
+ }else status="DEVOLVIDO COM ATRASO";
+
+   try{
+   RelatorioTXT.escritaAlunos( "Alunos.txt",
+   id,nome,manual1,classe1,manual2,classe2,dataL,dataD,status);
+   JOptionPane.showMessageDialog(null, "Devolvido com sucesso.");
+ }catch(IOException s){
+                                 }
+
+     }else  JOptionPane.showMessageDialog(null, "Primeiro selecione o estudante.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -80,7 +80,7 @@ public class DAO {
         return null;
     }
    
-    //DAO para gravar dados dos alunos na tabela alunos
+//////////////////////////DAO para gravar dados dos alunos na tabela alunos////////////////////////////////////////////////////////
     
         public static void guardarEstudante(Estudantes e){
        String sqlSaver="INSERT INTO `dadosbibliotecarios`.`alunos` (`nome`, `sexo`, `contacto`,`residencia`,`turno`,`Manual_1`,`classe_1`,`Manual_2`,`classe_2`,`dataLevanta`,`datadevolucao`) VALUES ('"+e.getNome()+"', '"+e.getSexo()+"','"+e.getContacto()+"','"+e.getResidencia()+"','"+e.getTurno()+"','"+e.getManual1()+"','"+e.getClasse1()+"','"+e.getManual2()+"','"+e.getClasse2()+"','"+e.getDataL()+"','"+e.getDataD()+"');";
@@ -115,6 +115,55 @@ public class DAO {
         return null;
     }
     
+   ///////////////////Dao para grvar Manuais de Venda///////////////////////
+         
+ public static void guardarManuaisVenda(Manuais m){
+       String sqlSaver="INSERT INTO `dadosbibliotecarios`.`manuaisVenda` (`nome`, `classe`, `editora`, `preco`) VALUES ('"+m.getNome()+"', '"+m.getClasse()+"','"+m.getEditora()+"', '"+m.getPreco()+"');";
+       Connection conn = ConexaoSql.getConexao();
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sqlSaver);
+            ConexaoSql.close(conn,stmt);
+            System.out.println("gravado com sucesso");
+            
+        } catch (SQLException ex) {
+       
+        }
+    } 
+ 
    
-
+         public static List<Manuais> selecTudoManuaisVenda(){
+       String sqlSaver="SELECT * FROM dadosbibliotecarios.manuaisVenda";
+       Connection conn = ConexaoSql.getConexao();
+       List<Manuais> m = new ArrayList<Manuais>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs =stmt.executeQuery(sqlSaver);
+            while(rs.next()){
+        m.add(new Manuais(rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(1))); 
+            }
+            ConexaoSql.close(conn,stmt,rs);
+            return m;
+        } catch (SQLException ex) {
+       ex.printStackTrace();
+        }  
+        return null;
+    }
+         
+           public static void deletarManuaisVenda(Manuais m){
+    
+       String sqlSaver="DELETE FROM `dadosbibliotecarios`.`manuaisVenda` WHERE (`id` = '"+m.getId()+"');";
+       Connection conn = ConexaoSql.getConexao();
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sqlSaver);
+            ConexaoSql.close(conn,stmt);
+            System.out.println("Deletado com sucesso id:."+m.getId());
+            
+        } catch (SQLException ex) {
+       
+        }
+    }
+    
+    
 }

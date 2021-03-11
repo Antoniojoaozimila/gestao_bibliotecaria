@@ -2,6 +2,7 @@
 package Modelagem;
 
 import java.io.Serializable;
+import java.io.InvalidClassException;
 
 /**
  *
@@ -9,7 +10,8 @@ import java.io.Serializable;
  */
 public class Manuais implements Serializable{
     private String nome,classe,editora,localizacao;
-    private  int id;
+    private  int id,preco;
+    
 
     public Manuais(String nome, String classe, String editora, String localizacao) {
         this.nome = nome;
@@ -25,6 +27,20 @@ public class Manuais implements Serializable{
         this.localizacao = localizacao;
         this.id = id;
     }
+     public Manuais(String nome,String classe,String editora,int preco) {
+        this.nome = nome;
+        this.classe = classe;
+        this.editora = editora;
+        this.preco=preco;
+    }
+      public Manuais(String nome,String classe,String editora,int preco,int id) {
+        this.nome = nome;
+        this.classe = classe;
+        this.editora = editora;
+        this.preco=preco;
+        this.id=id;
+    }
+    
     
 
     public Manuais() {
@@ -78,33 +94,18 @@ public class Manuais implements Serializable{
     }
 
     @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.getId();
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Manuais other = (Manuais) obj;
-        if (this.getId() != other.getId()) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "Manuais{" + "nome=" + nome + ", classe=" + classe + ", editora=" + editora + ", localizacao=" + localizacao + ", id=" + id + '}';
+    }
+
+    
+    public int getPreco() {
+        return preco;
+    }
+
+   
+    public void setPreco(int preco) {
+        this.preco = preco;
     }
 
     

@@ -6,6 +6,7 @@ import Modelagem.DAO;
 import Modelagem.Estudantes;
 import Modelagem.Manuais;
 import View.NiveisDeAcesso;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,11 +20,12 @@ import java.util.logging.Logger;
 public class Controlador {
     
     public static void main(String[]zimila){
+   
       // NiveisDeAcesso n = new NiveisDeAcesso();
        //n.setVisible(true);
     //  Connection conection =ConexaoSql.getConexao(); 
   // atualizar();
- guardar();
+ //guardar();
    //deletar();
  // List<Manuais> lista =selectAl(); //ou assim   List<Manuais> lista =selecTudo(); chando directamnte sem usar o metodo local
  // System.out.println(lista);

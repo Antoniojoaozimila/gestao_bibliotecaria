@@ -16,6 +16,7 @@ public static Connection getConexao(){
     String senha="";
     try {
         Connection conection =DriverManager.getConnection(URL,user,senha);
+       //  this.setCon((Connection) DriverManager.getConnection(url, user, senha));
         System.out.println(conection);
         return conection;
     } catch (SQLException ex) {

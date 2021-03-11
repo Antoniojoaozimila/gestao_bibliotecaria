@@ -23,7 +23,7 @@ public class Emprestimo extends javax.swing.JInternalFrame {
    // modelo.fireTableDataChanged();
 //    jTableManuais.updateUI();
     for(Estudantes e: dao.selecTudoEstudantes()){
-    modelo.addRow(new Object[]{e.getId(),e.getNome(),e.getResidencia(),e.getContacto(),e.getSexo(),
+    modelo.addRow(new Object[]{e.getId(),e.getNome(),e.getSexo(),e.getContacto(),e.getResidencia(),
     e.getTurno(),e.getManual1(),e.getClasse1(),e.getManual2(),e.getClasse2(),e.getDataL(),e.getDataD()});
         
     }
@@ -140,7 +140,7 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         jLabel5.setText("Contacto:");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(+258) ## ### ####")));
+            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+258 ## ### ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -428,17 +428,17 @@ public class Emprestimo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
      String nome =jTextField1.getText();
-     String residencia=jTextField1.getText();
-     String contacto=jTextField1.getText();
+     String residencia=jTextField2.getText();
+     String contacto=jFormattedTextField1.getText();
+     System.out.println(contacto);
      char sexo=' ';
      String turno="";
      String manual1="";
      String classe1="";
      String manual2="";
      String classe2="";
-     String editora="";
-     String loc="";
        
      if( jRadioButton1.isSelected()){
          sexo='M';

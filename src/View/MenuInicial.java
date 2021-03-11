@@ -4,6 +4,7 @@ package View;
 import Modelagem.FicheiroDat;
 import Modelagem.Manuais;
 import java.util.ArrayList;
+import java.io.IOException;
 
 /**
  *
@@ -30,19 +31,30 @@ public class MenuInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu3 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jDesktopPane2 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuOpcoes = new javax.swing.JMenu();
-        itemCadastroManuais = new javax.swing.JMenuItem();
-        itemVisualizarManuais = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         LevantamentoItem = new javax.swing.JMenuItem();
         devolucaoItem = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+
+        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MENU PRINCIPAL");
 
         jDesktopPane2.setBackground(new java.awt.Color(0, 51, 153));
 
@@ -50,11 +62,11 @@ public class MenuInicial extends javax.swing.JFrame {
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 819, Short.MAX_VALUE)
+            .addGap(0, 1046, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 568, Short.MAX_VALUE)
+            .addGap(0, 667, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -75,25 +87,42 @@ public class MenuInicial extends javax.swing.JFrame {
                 MenuOpcoesMouseEntered(evt);
             }
         });
+        MenuOpcoes.add(jSeparator1);
 
-        itemCadastroManuais.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.SHIFT_MASK));
-        itemCadastroManuais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-salvar-20.png"))); // NOI18N
-        itemCadastroManuais.setText("Cadastro de Manuais");
-        itemCadastroManuais.addActionListener(new java.awt.event.ActionListener() {
+        jMenu4.setText("Cadastros de Manuais para");
+
+        jMenuItem2.setText("Estudantes");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemCadastroManuaisActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        MenuOpcoes.add(itemCadastroManuais);
+        jMenu4.add(jMenuItem2);
 
-        itemVisualizarManuais.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-invisível-20.png"))); // NOI18N
-        itemVisualizarManuais.setText("Visualizar todos Manuais");
-        itemVisualizarManuais.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setText("Venda");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemVisualizarManuaisActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        MenuOpcoes.add(itemVisualizarManuais);
+        jMenu4.add(jMenuItem3);
+
+        MenuOpcoes.add(jMenu4);
+
+        jMenu5.setText("Visualizar Manuais de");
+
+        jMenuItem4.setText("Alunos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem4);
+
+        jMenuItem5.setText("Venda");
+        jMenu5.add(jMenuItem5);
+
+        MenuOpcoes.add(jMenu5);
 
         jMenuBar1.add(MenuOpcoes);
 
@@ -120,13 +149,39 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-livro-razão-20.png"))); // NOI18N
-        jMenu3.setText("Venda");
-        jMenuBar1.add(jMenu3);
-
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-abrir-pasta-20.png"))); // NOI18N
         jMenu1.setText("Relatorios");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Alunos");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem6.setText("Vendas");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
         jMenuBar1.add(jMenu1);
+
+        jMenu6.setText("Vendas");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -145,30 +200,6 @@ public class MenuInicial extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemCadastroManuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCadastroManuaisActionPerformed
-     CadastroManuais c =  new CadastroManuais();
-     c.setVisible(true);
-     c.popular();//passando todos dados da base de dados para tabela apos clicar cadastrar manuais
-       
-    }//GEN-LAST:event_itemCadastroManuaisActionPerformed
-
-    private void itemVisualizarManuaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemVisualizarManuaisActionPerformed
-       VisualizarManuais v = new VisualizarManuais();
-       jDesktopPane2.add(v);
-       v.setVisible(true);
-       v.popular();
-       /*
-           for(Object item: manuaisFicheiro){
-           String nome =(String) ((Manuais)item).getNome();
-           String classe=(String) ((Manuais)item).getClasse();
-           String editora=(String) ((Manuais)item).getEditora();
-           String loc = (String)   ((Manuais)item).getLocalizacao();
-           
-             v.popular(nome,classe,editora,loc);
-      }
-       */
-    }//GEN-LAST:event_itemVisualizarManuaisActionPerformed
-
     private void MenuOpcoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuOpcoesMouseEntered
         
    // MenuOpcoes.add(itemCadastroManuais);
@@ -178,6 +209,7 @@ public class MenuInicial extends javax.swing.JFrame {
         Emprestimo m = new Emprestimo();
        jDesktopPane2.add(m);
         m.setVisible(true);
+        m.popularEstudantes();
     }//GEN-LAST:event_LevantamentoItemActionPerformed
 
     private void devolucaoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolucaoItemActionPerformed
@@ -185,7 +217,59 @@ public class MenuInicial extends javax.swing.JFrame {
         Devolucao d = new Devolucao();
         jDesktopPane2.add(d);
         d.setVisible(true);
+        d.popularEstudantes();
     }//GEN-LAST:event_devolucaoItemActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+      
+    
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+          try{
+      Runtime.getRuntime().exec("notepad Alunos.txt"); 
+        }catch(IOException e){
+        System.err.println("erro");  
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+      CadastroManuais c = new CadastroManuais();
+     // jDesktopPane2.add(c);
+      c.setVisible(true);
+      c.popular();
+      
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+         VisualizarManuais v = new VisualizarManuais();
+        jDesktopPane2.add(v);
+        v.setVisible(true);
+        v.popular();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+      ManuaisVenda c = new ManuaisVenda();
+        jDesktopPane2.add(c);
+        c.setVisible(true);
+        c.popular();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+       Venda v = new Venda();
+       jDesktopPane2.add(v);
+       v.setVisible(true);
+       v.popular();
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+         try{
+      Runtime.getRuntime().exec("notepad RelatorioVenda.txt"); 
+        }catch(IOException e){
+        System.err.println("erro");  
+        }
+             
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,13 +310,21 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem LevantamentoItem;
     private javax.swing.JMenu MenuOpcoes;
     private javax.swing.JMenuItem devolucaoItem;
-    private javax.swing.JMenuItem itemCadastroManuais;
-    private javax.swing.JMenuItem itemVisualizarManuais;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
