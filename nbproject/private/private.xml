@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/View/Venda.java</file>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/View/CadastroManuaisUsoAlunos.java</file>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/View/Emprestimo.java</file>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/View/Devolucao.java</file>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/View/NiveisDeAcesso.java</file>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/View/ManuaisVenda.java</file>
+            <file>file:/D:/UEM/2-SEMESTRE/POO/ProjectoFinal_2021/src/Modelagem/DAO.java</file>
+        </group>
     </open-files>
 </project-private>
