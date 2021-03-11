@@ -95,6 +95,20 @@ public class DAO {
        
         }
     } 
+         public static void deletarAlunos(Estudantes m){
+    
+          String sqlSaver="DELETE FROM `dadosbibliotecarios`.`alunos` WHERE (`id` = '"+m.getId()+"');";
+       Connection conn = ConexaoSql.getConexao();
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sqlSaver);
+            ConexaoSql.close(conn,stmt);
+            System.out.println("Deletado com sucesso id:."+m.getId());
+            
+        } catch (SQLException ex) {
+       
+        }
+    }
         
          public static List<Estudantes> selecTudoEstudantes(){
        String sqlSaver="SELECT * FROM dadosbibliotecarios.alunos";

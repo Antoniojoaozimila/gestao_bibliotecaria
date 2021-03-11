@@ -40,9 +40,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         LevantamentoItem = new javax.swing.JMenuItem();
         devolucaoItem = new javax.swing.JMenuItem();
@@ -108,21 +105,6 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu4.add(jMenuItem3);
 
         MenuOpcoes.add(jMenu4);
-
-        jMenu5.setText("Visualizar Manuais de");
-
-        jMenuItem4.setText("Alunos");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem4);
-
-        jMenuItem5.setText("Venda");
-        jMenu5.add(jMenuItem5);
-
-        MenuOpcoes.add(jMenu5);
 
         jMenuBar1.add(MenuOpcoes);
 
@@ -234,19 +216,12 @@ public class MenuInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-      CadastroManuais c = new CadastroManuais();
-     // jDesktopPane2.add(c);
+      CadastroManuaisUsoAlunos c = new CadastroManuaisUsoAlunos();
+      jDesktopPane2.add(c);
       c.setVisible(true);
       c.popular();
       
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-         VisualizarManuais v = new VisualizarManuais();
-        jDesktopPane2.add(v);
-        v.setVisible(true);
-        v.popular();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
       ManuaisVenda c = new ManuaisVenda();
@@ -315,14 +290,11 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;

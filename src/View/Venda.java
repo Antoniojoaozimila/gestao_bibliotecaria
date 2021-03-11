@@ -71,6 +71,7 @@ private DefaultTableModel  modelo;
         jTable1 = new javax.swing.JTable();
 
         setClosable(true);
+        setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
 

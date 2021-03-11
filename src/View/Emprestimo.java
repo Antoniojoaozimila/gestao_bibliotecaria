@@ -8,6 +8,7 @@ package View;
 import Modelagem.DAO;
 import Modelagem.Estudantes;
 import Modelagem.Manuais;
+import java.awt.Color;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -85,6 +86,7 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
 
         setClosable(true);
+        setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Cadastro");
@@ -215,6 +217,15 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salvar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -225,11 +236,34 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Excluir");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(0, 204, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Atualizar");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -245,13 +279,13 @@ public class Emprestimo extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(143, 143, 143)))
+                        .addGap(126, 126, 126)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -692,6 +726,51 @@ public class Emprestimo extends javax.swing.JInternalFrame {
      jTextField1.setText("");  jTextField2.setText("");jFormattedTextField1.setText("");jFormattedTextField2.setText("");
      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+     //Removendo os dados do banco de dados
+      Estudantes estudantes = new Estudantes();
+      int ID = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
+      estudantes.setId(ID);
+      DAO.deletarAlunos(estudantes);
+      
+       //Removendo os dados da tabela
+     int id = jTable1.getSelectedRow();
+     modelo.removeRow(id);
+     modelo.fireTableDataChanged();
+     jTable1.updateUI();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        jButton1.setBackground(Color.white);
+        jButton1.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+         jButton1.setBackground(new Color(0,255,51));
+        jButton1.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+        jButton3.setBackground(Color.white);
+        jButton3.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+        jButton3.setBackground(new Color(0,204,51));
+        jButton3.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+          jButton2.setBackground(Color.white);
+        jButton2.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        jButton2.setBackground(new Color(204,0,0));
+        jButton2.setForeground(Color.WHITE);
+    }//GEN-LAST:event_jButton2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
