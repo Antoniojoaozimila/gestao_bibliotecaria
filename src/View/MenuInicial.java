@@ -5,6 +5,9 @@ import Modelagem.FicheiroDat;
 import Modelagem.Manuais;
 import java.util.ArrayList;
 import java.io.IOException;
+import java.awt.Image;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -33,7 +36,14 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jMenu3 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jDesktopPane2 = new javax.swing.JDesktopPane();
+        ImageIcon imgFundo = new ImageIcon(getClass().getResource("/PapeisDEParede/Fundo.jpg"));
+        Image image=imgFundo.getImage();
+        jDesktopPane2 = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics g) {
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            }
+
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuOpcoes = new javax.swing.JMenu();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
