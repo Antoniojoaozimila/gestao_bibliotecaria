@@ -3,10 +3,12 @@ package View;
 
 import Modelagem.FicheiroDat;
 import Modelagem.Manuais;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.awt.Image;
 import java.awt.Graphics;
+import javax.swing.Action;
 import javax.swing.ImageIcon;
 
 /**
@@ -89,9 +91,13 @@ public class MenuInicial extends javax.swing.JFrame {
 
         MenuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-configurações-20.png"))); // NOI18N
         MenuOpcoes.setText("Opções");
+        MenuOpcoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MenuOpcoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 MenuOpcoesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MenuOpcoesMouseExited(evt);
             }
         });
         MenuOpcoes.add(jSeparator1);
@@ -99,6 +105,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu4.setText("Cadastros de Manuais para");
 
         jMenuItem2.setText("Estudantes");
+        jMenuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -107,6 +114,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu4.add(jMenuItem2);
 
         jMenuItem3.setText("Venda");
+        jMenuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -120,9 +128,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-emprestar-o-livro-20.png"))); // NOI18N
         jMenu2.setText("Empretimos");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         LevantamentoItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-emprestar-o-livro-20_2.png"))); // NOI18N
         LevantamentoItem.setText("Levantamento");
+        LevantamentoItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LevantamentoItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LevantamentoItemActionPerformed(evt);
@@ -132,6 +142,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         devolucaoItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-emprestar-o-livro-20_1.png"))); // NOI18N
         devolucaoItem.setText("Devolucao");
+        devolucaoItem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         devolucaoItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 devolucaoItemActionPerformed(evt);
@@ -143,6 +154,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-abrir-pasta-20.png"))); // NOI18N
         jMenu1.setText("Relatorios");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
@@ -150,6 +162,7 @@ public class MenuInicial extends javax.swing.JFrame {
         });
 
         jMenuItem1.setText("Alunos");
+        jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -158,6 +171,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem6.setText("Vendas");
+        jMenuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -168,6 +182,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu6.setText("Vendas");
+        jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu6MouseClicked(evt);
@@ -194,7 +209,8 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void MenuOpcoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuOpcoesMouseEntered
         
-   // MenuOpcoes.add(itemCadastroManuais);
+          MenuOpcoes.setBackground(Color.GREEN);
+        //  MenuOpcoes.setForeground(Color.BLACK);
     }//GEN-LAST:event_MenuOpcoesMouseEntered
 
     private void LevantamentoItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LevantamentoItemActionPerformed
@@ -255,6 +271,12 @@ public class MenuInicial extends javax.swing.JFrame {
         }
              
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void MenuOpcoesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MenuOpcoesMouseExited
+    
+      //    MenuOpcoes.setBackground(Color.GREEN);
+       //   MenuOpcoes.setForeground(Color.BLACK);
+    }//GEN-LAST:event_MenuOpcoesMouseExited
 
     /**
      * @param args the command line arguments
