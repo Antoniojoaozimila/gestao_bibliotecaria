@@ -5,7 +5,6 @@ import Modelagem.ConexaoSql;
 import Modelagem.DAO;
 import Modelagem.Estudantes;
 import Modelagem.Manuais;
-import View.NiveisDeAcesso;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;

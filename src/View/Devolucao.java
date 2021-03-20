@@ -9,6 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import javax.swing.RowFilter;
 
 /**
  *
@@ -20,6 +25,8 @@ public class Devolucao extends javax.swing.JInternalFrame {
    private int diahj;
    private int diferenca;
    private String controlo;
+   
+   private TableRowSorter<TableModel> rowSorter;
    
    public void popularEstudantes(){
     DAO dao = new DAO();
@@ -58,6 +65,43 @@ public class Devolucao extends javax.swing.JInternalFrame {
      modelo = new DefaultTableModel();
      modelo.setColumnIdentifiers(colunas);
      jTable1.setModel(modelo);
+     jTable1.setAutoCreateRowSorter(true);
+     rowSorter = new TableRowSorter<TableModel>(jTable1.getModel());
+     jTable1.setRowSorter(rowSorter);
+     
+     
+        jTextField1.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                String text = jTextField1.getText();
+
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                String text = jTextField1.getText();
+
+                if (text.trim().length() == 0) {
+                    rowSorter.setRowFilter(null);
+                } else {
+                    rowSorter.setRowFilter(RowFilter.regexFilter("(?i)" + text));
+                }
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        });///////////////////////fim pesquisa dinamicaa dos Manuais
+
+     
+     
     }
 
     /**
@@ -221,6 +265,8 @@ public class Devolucao extends javax.swing.JInternalFrame {
    try{
    RelatorioTXT.escritaAlunos( "Alunos.txt",
    id,nome,manual1,classe1,manual2,classe2,dataL,dataD,status);
+   
+   modelo.removeRow(jTable1.getSelectedRow());
    JOptionPane.showMessageDialog(null, "Devolvido com sucesso.");
  }catch(IOException s){
                                  }
