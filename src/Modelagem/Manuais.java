@@ -1,14 +1,14 @@
 
 package Modelagem;
 
-import java.io.Serializable;
-import java.io.InvalidClassException;
+//import java.io.Serializable;
+//import java.io.InvalidClassException;
 
 /**
  *
  * @author Antonio joao zimila
  */
-public class Manuais implements Serializable{
+public class Manuais /*implements Serializable*/{
     private String nome,classe,editora,localizacao;
     private  int id,preco;
     
@@ -92,12 +92,12 @@ public class Manuais implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-
+/*
     @Override
     public String toString() {
         return "Manuais{" + "nome=" + nome + ", classe=" + classe + ", editora=" + editora + ", localizacao=" + localizacao + ", id=" + id + '}';
     }
-
+*/
     
     public int getPreco() {
         return preco;

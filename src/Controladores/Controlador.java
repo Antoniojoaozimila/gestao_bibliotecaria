@@ -5,6 +5,7 @@ import Modelagem.ConexaoSql;
 import Modelagem.DAO;
 import Modelagem.Estudantes;
 import Modelagem.Manuais;
+import View.ACessoInicial;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -20,6 +21,9 @@ public class Controlador {
     
     public static void main(String[]zimila){
    
+        
+       ACessoInicial a =new ACessoInicial();
+       a.setVisible(true);
       // NiveisDeAcesso n = new NiveisDeAcesso();
        //n.setVisible(true);
     //  Connection conection =ConexaoSql.getConexao(); 

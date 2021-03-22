@@ -20,9 +20,10 @@ public class MenuInicial extends javax.swing.JFrame {
     /**
      * Creates new form MenuInicial
      */
-
+/*
   FicheiroDat f =new FicheiroDat(); 
   ArrayList<Object> manuaisFicheiro = f.leitura("Manuais.dat");
+    */
     public MenuInicial() {
         initComponents();
     }
@@ -52,6 +53,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         LevantamentoItem = new javax.swing.JMenuItem();
         devolucaoItem = new javax.swing.JMenuItem();
@@ -59,6 +61,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -71,11 +74,11 @@ public class MenuInicial extends javax.swing.JFrame {
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1046, Short.MAX_VALUE)
+            .addGap(0, 922, Short.MAX_VALUE)
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 667, Short.MAX_VALUE)
+            .addGap(0, 487, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -89,6 +92,7 @@ public class MenuInicial extends javax.swing.JFrame {
             .addComponent(jDesktopPane2)
         );
 
+        MenuOpcoes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         MenuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8-configurações-20.png"))); // NOI18N
         MenuOpcoes.setText("Opções");
         MenuOpcoes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -123,6 +127,14 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu4.add(jMenuItem3);
 
         MenuOpcoes.add(jMenu4);
+
+        jMenuItem4.setText("Voltar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        MenuOpcoes.add(jMenuItem4);
 
         jMenuBar1.add(MenuOpcoes);
 
@@ -189,6 +201,14 @@ public class MenuInicial extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu6);
+
+        jMenu5.setText("Administrador");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -278,6 +298,18 @@ public class MenuInicial extends javax.swing.JFrame {
        //   MenuOpcoes.setForeground(Color.BLACK);
     }//GEN-LAST:event_MenuOpcoesMouseExited
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+     ACessoInicial a = new ACessoInicial();
+     a.setVisible(true);
+     this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+    Administrador a = new Administrador();
+    jDesktopPane2.add(a);
+    a.setVisible(true);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -322,11 +354,13 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
