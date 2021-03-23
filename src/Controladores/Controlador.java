@@ -25,13 +25,13 @@ public class Controlador {
        ACessoInicial a =new ACessoInicial();
        a.setVisible(true);
       // NiveisDeAcesso n = new NiveisDeAcesso();
-       //n.setVisible(true);
-    //  Connection conection =ConexaoSql.getConexao(); 
-  // atualizar();
- //guardar();
-   //deletar();
- // List<Manuais> lista =selectAl(); //ou assim   List<Manuais> lista =selecTudo(); chando directamnte sem usar o metodo local
- // System.out.println(lista);
+      //n.setVisible(true);
+      //  Connection conection =ConexaoSql.getConexao(); 
+      // atualizar();
+      //guardar();
+      //deletar();
+      // List<Manuais> lista =selectAl(); //ou assim   List<Manuais> lista =selecTudo(); chando directamnte sem usar o metodo local
+       // System.out.println(lista);
 
     
     }
