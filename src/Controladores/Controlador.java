@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 /**
  *
@@ -21,7 +23,18 @@ public class Controlador {
     
     public static void main(String[]zimila){
    
-        
+          try {
+            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+
+                if ("Nimbus".equals(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+
+        } catch (Exception x) {
+            x.printStackTrace();
+        }
        ACessoInicial a =new ACessoInicial();
        a.setVisible(true);
       // NiveisDeAcesso n = new NiveisDeAcesso();

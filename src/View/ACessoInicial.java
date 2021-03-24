@@ -20,6 +20,7 @@ public class ACessoInicial extends javax.swing.JFrame {
      */
     public ACessoInicial() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
         new Thread(){
             public void run(){
