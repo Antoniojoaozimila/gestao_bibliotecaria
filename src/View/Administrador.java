@@ -118,13 +118,13 @@ public class Administrador extends javax.swing.JInternalFrame {
 
         jLabel7.setText("NATURALIDADE:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a Naturalidade", "Maputo", "Gaza", "Inhambane", "Sofala", "Manica", "Zambezia", "Tete", "Cabo-Delgado", "Niassa" }));
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Salvar");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Atualizar");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Apagar");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -272,19 +272,22 @@ public class Administrador extends javax.swing.JInternalFrame {
 
         jLabel10.setText("CONTACTO:");
 
-        jFormattedTextField1.setText("jFormattedTextField1");
-
         jLabel11.setText("SEXO:");
 
         jRadioButton3.setText("MASCULINO");
 
         jRadioButton4.setText("FEMENINO");
 
-        jButton4.setText("jButton4");
+        jButton4.setText("Salvar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("jButton5");
+        jButton5.setText("Atualizar");
 
-        jButton6.setText("jButton6");
+        jButton6.setText("Apagar");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -413,6 +416,10 @@ public class Administrador extends javax.swing.JInternalFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
