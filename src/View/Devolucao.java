@@ -263,7 +263,7 @@ public class Devolucao extends javax.swing.JInternalFrame {
  }else status="DEVOLVIDO COM ATRASO";
 
    try{
-   RelatorioTXT.escritaAlunos( "Alunos.txt",
+   RelatorioTXT.escritaAlunos(getClass().getResource("/Ficheiros/AlunosDelucoes.dat").getPath(),
    id,nome,manual1,classe1,manual2,classe2,dataL,dataD,status);
    
    modelo.removeRow(jTable1.getSelectedRow());

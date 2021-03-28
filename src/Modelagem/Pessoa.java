@@ -6,10 +6,10 @@ package Modelagem;
  * @author Antonio joao zimila
  */
 public class Pessoa {
-    private String nome;
+    protected String nome;
     protected String residencia;
     protected String contacto;
-    private char sexo;
+    protected char sexo;
 
     public Pessoa(String nome, String residencia, String contacto, char sexo) {
         this.nome = nome;

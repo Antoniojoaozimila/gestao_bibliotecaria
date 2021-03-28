@@ -65,7 +65,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jMenu3.setText("jMenu3");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENU PRINCIPAL");
 
         jDesktopPane2.setBackground(new java.awt.Color(0, 51, 153));
@@ -208,6 +208,11 @@ public class MenuInicial extends javax.swing.JFrame {
                 jMenu5MouseClicked(evt);
             }
         });
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -309,6 +314,12 @@ public class MenuInicial extends javax.swing.JFrame {
     jDesktopPane2.add(a);
     a.setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+       Administrador a = new Administrador();
+     //  a.listarAdmin();
+       //a.listarFunc();
+    }//GEN-LAST:event_jMenu5ActionPerformed
 
     /**
      * @param args the command line arguments

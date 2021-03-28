@@ -280,7 +280,7 @@ private DefaultTableModel  modelo;
  DAO.deletarManuaisVenda(m);//removendo manual comprado na base de dados
         try {
             //relatorio da venda
-            RelatorioTXT.escritaManuaisVendidos("RelatorioVenda.txt", id, nomeCliente, contacto, nomeManual, classe, editora, preco, valorAPagar, trocoLabel);
+            RelatorioTXT.escritaManuaisVendidos(getClass().getResource("/Ficheiros/RelatorioVendas.txt").getPath(), id, nomeCliente, contacto, nomeManual, classe, editora, preco, valorAPagar, trocoLabel);
         } catch (IOException ex) {
             Logger.getLogger(Venda.class.getName()).log(Level.SEVERE, null, ex);
         }

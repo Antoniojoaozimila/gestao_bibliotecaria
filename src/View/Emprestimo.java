@@ -345,6 +345,7 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextField2.setToolTipText("AA-MM-DD");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -485,61 +486,14 @@ public class Emprestimo extends javax.swing.JInternalFrame {
          turno="Pos-Laboral";
      }
       
-     if(jComboBox1.getSelectedIndex()==1){
-       manual1="Matematica";  
-     }else if(jComboBox1.getSelectedIndex()==2){
-         manual1="Portugues";
-     }else if(jComboBox1.getSelectedIndex()==3){
-         manual1="Fisica";
-     }else if(jComboBox1.getSelectedIndex()==4){
-         manual1="Quimica";
-     }else if(jComboBox1.getSelectedIndex()==5){
-         manual1="Geografia";
-     }else if(jComboBox1.getSelectedIndex()==6){
-         manual1="Biologiia";
-     }else if(jComboBox1.getSelectedIndex()==7){
-         manual1="Hostoria";
-     }
+   
+     manual1=jComboBox1.getSelectedItem().toString();
+   
+     classe1=jComboBox2.getSelectedItem().toString();
+   
+     manual2=jComboBox1.getSelectedItem().toString();
      
-     if(jComboBox2.getSelectedIndex()==1){
-       classe1="8 Classe";  
-     }else if(jComboBox2.getSelectedIndex()==2){
-         classe1="9 Classe";
-     }else if(jComboBox2.getSelectedIndex()==3){
-         classe1="10 Classe";
-     }else if(jComboBox2.getSelectedIndex()==4){
-         classe1="11 Classe";
-     }else if(jComboBox2.getSelectedIndex()==5){
-         classe1="12 Classe";
-     }
-     
-     if(jComboBox1.getSelectedIndex()==1){
-       manual2="Matematica";  
-     }else if(jComboBox1.getSelectedIndex()==2){
-         manual2="Portugues";
-     }else if(jComboBox1.getSelectedIndex()==3){
-         manual2="Fisica";
-     }else if(jComboBox1.getSelectedIndex()==4){
-         manual2="Quimica";
-     }else if(jComboBox1.getSelectedIndex()==5){
-         manual2="Geografia";
-     }else if(jComboBox1.getSelectedIndex()==6){
-         manual2="Biologiia";
-     }else if(jComboBox1.getSelectedIndex()==7){
-         manual2="Hostoria";
-     }
-     
-     if(jComboBox2.getSelectedIndex()==1){
-       classe2="8 Classe";  
-     }else if(jComboBox2.getSelectedIndex()==2){
-         classe2="9 Classe";
-     }else if(jComboBox2.getSelectedIndex()==3){
-         classe2="10 Classe";
-     }else if(jComboBox2.getSelectedIndex()==4){
-         classe2="11 Classe";
-     }else if(jComboBox2.getSelectedIndex()==5){
-         classe2="12 Classe";
-     }
+     classe2=jComboBox2.getSelectedItem().toString();
    
      int tempoComManual=0;
      String dataLevanta=jFormattedTextField2.getText();
