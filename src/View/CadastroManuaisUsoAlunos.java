@@ -401,33 +401,11 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
      String classe="";
      String editora="";
        String loc="";
-     if(jComboBox1.getSelectedIndex()==1){
-       classe="8 Classe";  
-     }else if(jComboBox1.getSelectedIndex()==2){
-         classe="9 Classe";
-     }else if(jComboBox1.getSelectedIndex()==3){
-         classe="10 Classe";
-     }else if(jComboBox1.getSelectedIndex()==4){
-         classe="11 Classe";
-     }else if(jComboBox1.getSelectedIndex()==5){
-         classe="12 Classe";
-     }
-   
-     if(jComboBox2.getSelectedIndex()==0){
-        editora="Plural"; 
-     }else if(jComboBox2.getSelectedIndex()==1){
-         editora="LongMan";
-     }else if(jComboBox2.getSelectedIndex()==2){
-         editora="Texto Editores";
-     }
-     if(jComboBox3.getSelectedIndex()==0){
-         loc="A";
-     }else if(jComboBox3.getSelectedIndex()==1){
-        loc="B";  
-     }else if(jComboBox3.getSelectedIndex()==2){
-         loc="C"; 
-     }
     
+     classe=jComboBox1.getSelectedItem().toString();
+     editora=jComboBox2.getSelectedItem().toString();
+     loc=jComboBox3.getSelectedItem().toString();
+     
      //passando os dados para o ficheiro dat
 
      //gravando os dados no banco de dados
@@ -436,7 +414,7 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
       
      //passando o ultimo dados cadastrado para tabela
        popular();
-     
+      JOptionPane.showMessageDialog(null,"gravado com sucesso");
      
       
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -448,32 +426,12 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
      String classe="";
      String editora="";
        String loc="";
-     if(jComboBox1.getSelectedIndex()==1){
-       classe="8 Classe";  
-     }else if(jComboBox1.getSelectedIndex()==2){
-         classe="9 Classe";
-     }else if(jComboBox1.getSelectedIndex()==3){
-         classe="10 Classe";
-     }else if(jComboBox1.getSelectedIndex()==4){
-         classe="11 Classe";
-     }else if(jComboBox1.getSelectedIndex()==5){
-         classe="12 Classe";
-     }
+     
+     classe=jComboBox1.getSelectedItem().toString();
    
-     if(jComboBox2.getSelectedIndex()==0){
-        editora="Plural"; 
-     }else if(jComboBox2.getSelectedIndex()==1){
-         editora="LongMan";
-     }else if(jComboBox2.getSelectedIndex()==2){
-         editora="Texto Editores";
-     }
-     if(jComboBox3.getSelectedIndex()==0){
-         loc="A";
-     }else if(jComboBox3.getSelectedIndex()==1){
-        loc="B";  
-     }else if(jComboBox3.getSelectedIndex()==2){
-         loc="C"; 
-     }
+     editora=jComboBox2.getSelectedItem().toString();
+   
+     loc=jComboBox3.getSelectedItem().toString();
      //Alterando os dados no banco de dados
      int ID = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
      Manuais m = new Manuais(nome,classe,editora,loc,ID);

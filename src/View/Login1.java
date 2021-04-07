@@ -5,13 +5,25 @@
  */
 package View;
 
+import Modelagem.AdministradorModel;
 import java.awt.Color;
+import java.util.ArrayList;
+import Modelagem.FicheiroDat;
+import Modelagem.FuncionariosModel;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author Antonio joao zimila
  */
 public class Login1 extends javax.swing.JFrame {
+   // ArrayList<Object> admin = FicheiroDat.leitura(getClass().getResource("/Ficheiros/Admin.dat").getPath()); 
+    ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat")); 
+  // ArrayList<Object> func = FicheiroDat.leitura(getClass().getResource("/Ficheiros/func.dat").getPath()); 
+     ArrayList<Object> func = FicheiroDat.leitura(("func.dat")); 
+   
+   
 
     /**
      * Creates new form Login1
@@ -103,8 +115,12 @@ public class Login1 extends javax.swing.JFrame {
         botaoSair.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         botaoSair.setForeground(new java.awt.Color(255, 255, 255));
         botaoSair.setText("Sair");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
 
-        txtSenha.setText("Informe o Password");
         txtSenha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSenhaFocusGained(evt);
@@ -121,6 +137,16 @@ public class Login1 extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jCheckBox1.setText("Ver senha");
+        jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBox1MouseClicked(evt);
+            }
+        });
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -194,27 +220,27 @@ public class Login1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioFocusLost
 
     private void txtSenhaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusGained
-         char previousEchoChar = txtSenha.getEchoChar();
+      /*   char previousEchoChar = txtSenha.getEchoChar();
          String valor = new String(txtSenha.getPassword());
        if(valor.equals("Informe o Password")){
              txtSenha.setEchoChar('\u0000');
             txtSenha.setText("");
             txtSenha.setForeground(new Color(153,153,153));
        }
-         
+       */  
                
         
          
     }//GEN-LAST:event_txtSenhaFocusGained
 
     private void txtSenhaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSenhaFocusLost
-        String valor = new String(txtSenha.getPassword());
+      /*  String valor = new String(txtSenha.getPassword());
         if(valor.equals("")){
             txtSenha.setText("Informe o Password");
             txtSenha.setForeground(new Color(153,153,153));
             
         } 
-        
+     */   
     }//GEN-LAST:event_txtSenhaFocusLost
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
@@ -222,10 +248,81 @@ public class Login1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
+/*     MenuInicial m = new MenuInicial();
+      m.setVisible(true);
+      this.setVisible(false);
+         
+	*/  
+       
+        ACessoInicial ac= new ACessoInicial();
+       boolean encontradoAdmin=false;
+       boolean econtradoFunc = false;
+       String senhaTxt= new String(txtSenha.getPassword());
+       
+       if(txtUsuario.getText().equalsIgnoreCase("Admin")){
+            for(Object item:admin){
+       String userName=(String) ((AdministradorModel)item).getUserName();
+       String senha=(String)  ((AdministradorModel)item).getSenha();
+       if(userName.equalsIgnoreCase(txtUsuario.getText())&&senha.equalsIgnoreCase((senhaTxt))){
+	   encontradoAdmin=true;
       MenuInicial m = new MenuInicial();
       m.setVisible(true);
       this.setVisible(false);
+             break;
+	    
+                }else{
+                         encontradoAdmin=false;
+                     }
+                }
+      
+           
+       }else if(txtUsuario.getText().equalsIgnoreCase("Func")){
+            for(Object item:func){
+      String userName2=(String) ((FuncionariosModel)item).getUserNameF();
+      String senha2=(String)    ((FuncionariosModel)item).getSenha();
+      if(userName2.equalsIgnoreCase(txtUsuario.getText())&&senha2.equalsIgnoreCase(senhaTxt)){
+      MenuInicial m = new MenuInicial();
+      m.setVisible(true);
+      this.setVisible(false);
+       econtradoFunc=true;
+  
+             break;
+	    
+                }else{
+                         econtradoFunc=false;
+                     }
+                }
+      
+       }
+        
+       if(encontradoAdmin==false&&econtradoFunc==false){
+           JOptionPane.showMessageDialog(null,"Nome de usuario ou senha errada tente novamnete.");
+       }
+        
+	    
     }//GEN-LAST:event_botaoEntrarActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_botaoSairActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    			        
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox1MouseClicked
+      char previousEchoChar = txtSenha.getEchoChar();
+  // String senhaTxt= new String(txtSenha.getPassword());
+  
+      if(jCheckBox1.isSelected()){
+    	txtSenha.setEchoChar('\u0000');
+    	
+    	}else {
+    		
+          txtSenha.setEchoChar(previousEchoChar);
+    	}
+ 
+    }//GEN-LAST:event_jCheckBox1MouseClicked
 
     /**
      * @param args the command line arguments

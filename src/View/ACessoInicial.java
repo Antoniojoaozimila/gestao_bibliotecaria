@@ -14,6 +14,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.io.EOFException;
 import javax.swing.JOptionPane;
 public class ACessoInicial extends javax.swing.JFrame {
 
@@ -294,18 +295,21 @@ public class ACessoInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       if(FicheiroDat.leitura(getClass().getResource("/Ficheiros/Admin.dat").getPath()).size()!=0){
+     
+          if(FicheiroDat.leitura(("Admin.dat")).size()!=0){
          Login1 l = new Login1();
         l.setVisible(true);  
        }else{ JOptionPane.showMessageDialog(null,"Nenhum funcionario registado entre com admin para registar func...");
        }
+      
+        
         
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(FicheiroDat.leitura(getClass().getResource("/Ficheiros/Admin.dat").getPath()).size()==0){
+        if(FicheiroDat.leitura(("Admin.dat")).size()==0){
            jDialog1.setVisible(true);
            jDialog1.setLocationRelativeTo(null);
         }else{

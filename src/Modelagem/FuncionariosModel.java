@@ -9,29 +9,29 @@ import java.io.Serializable;
  */
 public class FuncionariosModel extends Pessoa implements Serializable {
   
-   private String userName,senha;
+   private String userNameF,senha;
 
     public FuncionariosModel(String userName, String senha, String nome, String residencia, String contacto, char sexo) {
         super(nome, residencia, contacto, sexo);
-        this.userName = userName;
+        this.userNameF = userName;
         this.senha = senha;
     }
 
     public FuncionariosModel(String nome, char sexo, String userName, String senha, String contacto) {
          this.nome=nome;
          this.sexo=sexo;
-         this.userName=userName;
+         this.userNameF=userName;
          this.senha=senha;
          this.contacto=contacto;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserNameF() {
+        return userNameF;
     }
 
    
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserNameF(String userName) {
+        this.userNameF = userName;
     }
 
     public String getSenha() {

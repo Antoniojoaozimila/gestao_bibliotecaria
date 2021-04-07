@@ -15,15 +15,46 @@ import Modelagem.FicheiroDat;
 import Modelagem.FuncionariosModel;
 import java.util.ArrayList;
 import Modelagem.AdministradorModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Administrador extends javax.swing.JInternalFrame {
    private DefaultTableModel  modelo,modelo1;
-   ArrayList<Object> admin = FicheiroDat.leitura(getClass().getResource("/Ficheiros/Admin.dat").getPath()); 
-   ArrayList<Object> func = FicheiroDat.leitura(getClass().getResource("/Ficheiros/func.dat").getPath()); 
+  // ArrayList<Object> admin = FicheiroDat.leitura(getClass().getResource("/Ficheiros/Admin.dat").getPath()); 
+    ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat")); 
+  // ArrayList<Object> func = FicheiroDat.leitura(getClass().getResource("/Ficheiros/func.dat").getPath()); 
+     ArrayList<Object> func = FicheiroDat.leitura(("Func.dat")); 
    
-   public void listarAdmin(String nome,String userName,String senha,char sexo,String residencia){
-          /*
+     
+     
+    
+
+   public void adicionarAdmin(String nome,String userName,String senha,char sexo,String residencia){
+             modelo1.addRow(new Object[]{admin.size(),nome,userName,senha,sexo,residencia});
+           // modelo.setNumRows(0);
+      
+
+   }
+    public void adicionarFunc(String nome,String userName,String senha,char sexo,String contacto){
+         modelo.addRow(new Object[]{func.size(),nome,userName,senha,sexo,contacto});
+           
+      
+
+   }
+    public void listarFunc(){
+         
+          for(Object item:func){
+             
+              String nome =(String)((FuncionariosModel)item).getNome();
+              String  userName = (String)((FuncionariosModel)item).getUserNameF();
+              String senha=(String)((FuncionariosModel)item).getSenha();
+              char sexo  =((FuncionariosModel)item).getSexo();
+              String contacto = (String) ((FuncionariosModel) item).getContacto();
+           
+          } 
+    }
+    public void listarAdmin(){
+         
           for(Object item:admin){
              
               String nome =(String)((AdministradorModel)item).getNome();
@@ -31,27 +62,11 @@ public class Administrador extends javax.swing.JInternalFrame {
               String senha=(String)((AdministradorModel)item).getSenha();
               char sexo  =((AdministradorModel)item).getSexo();
            String residencia = (String) ((AdministradorModel) item).getResidencia();
-             */    
              modelo1.addRow(new Object[]{admin.size(),nome,userName,senha,sexo,residencia});
-           // modelo.setNumRows(0);
-      
-
-   }
-    public void listarFunc(String nome,String userName,String senha,char sexo,String contacto){
-          /*
-          for(Object item:func){
-             
-              String nome =(String)((FuncionariosModel)item).getNome();
-              String  userName = (String)((FuncionariosModel)item).getUserName();
-              String senha=(String)((FuncionariosModel)item).getSenha();
-              char sexo  =((FuncionariosModel)item).getSexo();
-              String contacto = (String) ((FuncionariosModel) item).getContacto();
-           */
-         modelo.addRow(new Object[]{func.size(),nome,userName,senha,sexo,contacto});
            
-      
-
-   }
+          }   
+         
+    }
    
     public Administrador() {
      initComponents();
@@ -64,6 +79,7 @@ public class Administrador extends javax.swing.JInternalFrame {
      modelo = new DefaultTableModel();
      modelo.setColumnIdentifiers(colunasF);
      jTable2.setModel(modelo);
+     
     }
     
    
@@ -125,6 +141,12 @@ public class Administrador extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseClicked(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -571,12 +593,15 @@ public class Administrador extends javax.swing.JInternalFrame {
        }
        
           func.add(new FuncionariosModel(nome,sexo,userName,senha,contacto));
-          FicheiroDat.escrever(admin,getClass().getResource("/Ficheiros/Admin.dat").getPath());
-          listarFunc(nome,userName,senha,sexo,contacto);
+         // FicheiroDat.escrever(admin,getClass().getResource("/Ficheiros/Admin.dat").getPath());
+          FicheiroDat.escrever(func,("Func.dat"));
+
+         adicionarFunc(nome,userName,senha,sexo,contacto);
        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         String nome="";
         String userName="";
         String senha="";
@@ -594,8 +619,10 @@ public class Administrador extends javax.swing.JInternalFrame {
         residencia=jComboBox1.getSelectedItem().toString();
         
           admin.add(new AdministradorModel(nome,residencia,sexo,userName,senha));
-          FicheiroDat.escrever(admin,getClass().getResource("/Ficheiros/func.dat").getPath());
-          listarAdmin(nome,userName,senha,sexo,residencia);
+         // FicheiroDat.escrever(admin,getClass().getResource("/Ficheiros/func.dat").getPath());
+          FicheiroDat.escrever(admin,("Admin.dat")); 
+         
+         adicionarAdmin(nome,userName,senha,sexo,residencia);
         
         
         
@@ -604,6 +631,10 @@ public class Administrador extends javax.swing.JInternalFrame {
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4ActionPerformed
+
+    private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
+//     listarFunc();
+    }//GEN-LAST:event_jTabbedPane1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

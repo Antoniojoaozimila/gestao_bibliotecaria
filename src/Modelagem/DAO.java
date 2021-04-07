@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,46 +18,48 @@ import java.util.logging.Logger;
 public class DAO {
     
     public static void guardar(Manuais m){
+        try {
        String sqlSaver="INSERT INTO `dadosbibliotecarios`.`manuais` (`nome`, `classe`, `editora`, `localizacao`) VALUES ('"+m.getNome()+"', '"+m.getClasse()+"','"+m.getEditora()+"', '"+m.getLocalizacao()+"');";
        Connection conn = ConexaoSql.getConexao();
-        try {
+        
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("gravado com sucesso");
+            //System.out.println("gravado com sucesso");
+       // JOptionPane.showMessageDialog(null,"gravado com sucesso");
             
         } catch (SQLException ex) {
-       
+        JOptionPane.showMessageDialog(null,"Não foi possivel gravar.");
         }
     } 
     
     public static void deletar(Manuais m){
-    
+     try {
           String sqlSaver="DELETE FROM `dadosbibliotecarios`.`manuais` WHERE (`id` = '"+m.getId()+"');";
-       Connection conn = ConexaoSql.getConexao();
-        try {
+          Connection conn = ConexaoSql.getConexao();
+       
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("Deletado com sucesso id:."+m.getId());
-            
+           // System.out.println("Deletado com sucesso id:."+m.getId());
+            // JOptionPane.showMessageDialog(null,"Deletado com sucesso.");
         } catch (SQLException ex) {
-       
+             JOptionPane.showMessageDialog(null,"Não foi possivel deletar.");
         }
     }
     
     public static void atualizar(Manuais m){
-        
+          try {
        String sqlSaver="UPDATE `dadosbibliotecarios`.`manuais` SET `nome` = '"+m.getNome()+"',`classe` = '"+m.getClasse()+"',`editora` = '"+m.getEditora()+"',`localizacao` = '"+m.getLocalizacao()+"' WHERE `id` = '"+m.getId()+"';";
        Connection conn = ConexaoSql.getConexao();
-        try {
+      
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("Atualizado com sucesso id:."+m.getId());
-            
+           // System.out.println("Atualizado com sucesso id:."+m.getId());
+           //  JOptionPane.showMessageDialog(null,"Atualizado com sucesso.");
         } catch (SQLException ex) {
-       
+       JOptionPane.showMessageDialog(null,"Não foi possivel atualizar.");
         }
         
     }
@@ -75,7 +78,7 @@ public class DAO {
             ConexaoSql.close(conn,stmt,rs);
             return manuais;
         } catch (SQLException ex) {
-       ex.printStackTrace();
+      // ex.printStackTrace();
         }  
         return null;
     }
@@ -83,38 +86,41 @@ public class DAO {
 //////////////////////////DAO para gravar dados dos alunos na tabela alunos////////////////////////////////////////////////////////
     
         public static void guardarEstudante(Estudantes e){
+              try {
        String sqlSaver="INSERT INTO `dadosbibliotecarios`.`alunos` (`nome`, `sexo`, `contacto`,`residencia`,`turno`,`Manual_1`,`classe_1`,`Manual_2`,`classe_2`,`dataLevanta`,`datadevolucao`) VALUES ('"+e.getNome()+"', '"+e.getSexo()+"','"+e.getContacto()+"','"+e.getResidencia()+"','"+e.getTurno()+"','"+e.getManual1()+"','"+e.getClasse1()+"','"+e.getManual2()+"','"+e.getClasse2()+"','"+e.getDataL()+"','"+e.getDataD()+"');";
        Connection conn = ConexaoSql.getConexao();
-        try {
+      
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("gravado com sucesso");
+          // System.out.println("gravado com sucesso");
+          //   JOptionPane.showMessageDialog(null,"gravado com sucesso.");
             
         } catch (SQLException ex) {
-       
+          JOptionPane.showMessageDialog(null,"Não foi possivel gravar.");
         }
     } 
          public static void deletarAlunos(Estudantes m){
-    
+     try {
           String sqlSaver="DELETE FROM `dadosbibliotecarios`.`alunos` WHERE (`id` = '"+m.getId()+"');";
        Connection conn = ConexaoSql.getConexao();
-        try {
+       
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("Deletado com sucesso id:."+m.getId());
-            
+            //System.out.println("Deletado com sucesso id:."+m.getId());
+             //  JOptionPane.showMessageDialog(null,"deletado com sucesso.");
         } catch (SQLException ex) {
-       
+                     JOptionPane.showMessageDialog(null,"Não foi possivel deletar.");
         }
     }
         
          public static List<Estudantes> selecTudoEstudantes(){
+              try {
        String sqlSaver="SELECT * FROM dadosbibliotecarios.alunos";
        Connection conn = ConexaoSql.getConexao();
        List<Estudantes> estudantes = new ArrayList<Estudantes>();
-        try {
+       
             Statement stmt = conn.createStatement();
             ResultSet rs =stmt.executeQuery(sqlSaver);
             while(rs.next()){
@@ -124,7 +130,7 @@ public class DAO {
             ConexaoSql.close(conn,stmt,rs);
             return estudantes;
         } catch (SQLException ex) {
-       ex.printStackTrace();
+     //  ex.printStackTrace();
         }  
         return null;
     }
@@ -132,25 +138,28 @@ public class DAO {
    ///////////////////Dao para grvar Manuais de Venda///////////////////////
          
  public static void guardarManuaisVenda(Manuais m){
-       String sqlSaver="INSERT INTO `dadosbibliotecarios`.`manuaisVenda` (`nome`, `classe`, `editora`, `preco`) VALUES ('"+m.getNome()+"', '"+m.getClasse()+"','"+m.getEditora()+"', '"+m.getPreco()+"');";
+       try {
+       String sqlSaver="INSERT INTO `dadosbibliotecarios`.`manuaisvenda` (`nome`, `classe`, `editora`, `preco`) VALUES ('"+m.getNome()+"', '"+m.getClasse()+"','"+m.getEditora()+"', '"+m.getPreco()+"');";
        Connection conn = ConexaoSql.getConexao();
-        try {
+      
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("gravado com sucesso");
+         //   System.out.println("gravado com sucesso");
+          // JOptionPane.showMessageDialog(null,"gravado com sucesso.");
             
         } catch (SQLException ex) {
-       
+           JOptionPane.showMessageDialog(null,"Não foi possivel gravar.");
         }
     } 
  
    
          public static List<Manuais> selecTudoManuaisVenda(){
-       String sqlSaver="SELECT * FROM dadosbibliotecarios.manuaisVenda";
+                try {
+       String sqlSaver="SELECT * FROM dadosbibliotecarios.manuaisvenda";
        Connection conn = ConexaoSql.getConexao();
        List<Manuais> m = new ArrayList<Manuais>();
-        try {
+     
             Statement stmt = conn.createStatement();
             ResultSet rs =stmt.executeQuery(sqlSaver);
             while(rs.next()){
@@ -159,25 +168,43 @@ public class DAO {
             ConexaoSql.close(conn,stmt,rs);
             return m;
         } catch (SQLException ex) {
-       ex.printStackTrace();
+     //  ex.printStackTrace();
         }  
         return null;
     }
          
            public static void deletarManuaisVenda(Manuais m){
+                try {
     
-       String sqlSaver="DELETE FROM `dadosbibliotecarios`.`manuaisVenda` WHERE (`id` = '"+m.getId()+"');";
+       String sqlSaver="DELETE FROM `dadosbibliotecarios`.`manuaisvenda` WHERE (`id` = '"+m.getId()+"');";
        Connection conn = ConexaoSql.getConexao();
-        try {
+       
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(sqlSaver);
             ConexaoSql.close(conn,stmt);
-            System.out.println("Deletado com sucesso id:."+m.getId());
+          //  System.out.println("Deletado com sucesso id:."+m.getId());
+          //  JOptionPane.showMessageDialog(null,"deletado com sucesso.");
             
         } catch (SQLException ex) {
-       
+            JOptionPane.showMessageDialog(null,"Não foi possvel deletar.");
         }
     }
+            public static void atualizarManualVenda(Manuais m){
+          try {
+       String sqlSaver="UPDATE `dadosbibliotecarios`.`manuaisvenda` SET `nome` = '"+m.getNome()+"',`classe` = '"+m.getClasse()+"',`editora` = '"+m.getEditora()+"',`preco` = '"+m.getPreco()+"' WHERE `id` = '"+m.getId()+"';";
+       Connection conn = ConexaoSql.getConexao();
+      
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sqlSaver);
+            ConexaoSql.close(conn,stmt);
+           // System.out.println("Atualizado com sucesso id:."+m.getId());
+           //  JOptionPane.showMessageDialog(null,"Atualizado com sucesso.");
+        } catch (SQLException ex) {
+       JOptionPane.showMessageDialog(null,"Não foi possivel atualizar.");
+        }
+        
+    }
+    
     
     
 }

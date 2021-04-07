@@ -394,24 +394,9 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
         String preco1=jFormattedTextField2.getText();
         int preco=Integer.parseInt(preco1.substring(0, 3));
         
-      if(jComboBox1.getSelectedIndex()==1){
-       classe="8 Classe";  
-     }else if(jComboBox1.getSelectedIndex()==2){
-         classe="9 Classe";
-     }else if(jComboBox1.getSelectedIndex()==3){
-         classe="10 Classe";
-     }else if(jComboBox1.getSelectedIndex()==4){
-         classe="11 Classe";
-     }else if(jComboBox1.getSelectedIndex()==5){
-         classe="12 Classe";
-     }
-       if(jComboBox2.getSelectedIndex()==1){
-        editora="Plural"; 
-     }else if(jComboBox2.getSelectedIndex()==2){
-         editora="LongMan";
-     }else if(jComboBox2.getSelectedIndex()==3){
-         editora="Texto Editores";
-     }
+     
+     classe=jComboBox1.getSelectedItem().toString();
+     editora=jComboBox2.getSelectedItem().toString();
        
         //gravando os dados no banco de dados
         Manuais m1 =new Manuais(nome,classe,editora,preco);
@@ -419,6 +404,7 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
 
         //passando o ultimo dados cadastrado para tabela
          popular();
+       JOptionPane.showMessageDialog(null,"gravado com sucesso.");
        
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -427,30 +413,13 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
      String classe="";
      String editora="";
      int preco=Integer.parseInt(jFormattedTextField2.getText().substring(0, 3));
-     if(jComboBox1.getSelectedIndex()==1){
-       classe="8 Classe";  
-     }else if(jComboBox1.getSelectedIndex()==2){
-         classe="9 Classe";
-     }else if(jComboBox1.getSelectedIndex()==3){
-         classe="10 Classe";
-     }else if(jComboBox1.getSelectedIndex()==4){
-         classe="11 Classe";
-     }else if(jComboBox1.getSelectedIndex()==5){
-         classe="12 Classe";
-     }
    
-     if(jComboBox2.getSelectedIndex()==0){
-        editora="Plural"; 
-     }else if(jComboBox2.getSelectedIndex()==1){
-         editora="LongMan";
-     }else if(jComboBox2.getSelectedIndex()==2){
-         editora="Texto Editores";
-     }
-    
+    classe=jComboBox1.getSelectedItem().toString();
+    editora=jComboBox2.getSelectedItem().toString();
      //Alterando os dados no banco de dados
      int ID = (int) jTable1.getValueAt(jTable1.getSelectedRow(),0);
      Manuais m = new Manuais(nome,classe,editora,preco,ID);
-     DAO.atualizar(m);
+     DAO.atualizarManualVenda(m);
      
      //Alterando os dados na tabela
                 
@@ -478,6 +447,7 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
      modelo.removeRow(id);
      modelo.fireTableDataChanged();
      jTable1.updateUI();
+     JOptionPane.showMessageDialog(null,"Deletdo com sucesso."); 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained

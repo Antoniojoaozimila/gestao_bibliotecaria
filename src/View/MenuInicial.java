@@ -1,6 +1,7 @@
 
 package View;
 
+import Modelagem.AdministradorModel;
 import Modelagem.FicheiroDat;
 import Modelagem.Manuais;
 import java.awt.Color;
@@ -10,19 +11,20 @@ import java.awt.Image;
 import java.awt.Graphics;
 import javax.swing.Action;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Antonio joao zimila
  */
 public class MenuInicial extends javax.swing.JFrame {
-
+ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat")); 
     /**
      * Creates new form MenuInicial
      */
 /*
   FicheiroDat f =new FicheiroDat(); 
-  ArrayList<Object> manuaisFicheiro = f.leitura("Manuais.dat");
+  ArrayList<Object> Admin = f.leitura("Manuais.dat");
     */
     public MenuInicial() {
         initComponents();
@@ -38,6 +40,14 @@ public class MenuInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu3 = new javax.swing.JMenu();
+        jDialog1 = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         ImageIcon imgFundo = new ImageIcon(getClass().getResource("/PapeisDEParede/Fundo.jpg"));
         Image image=imgFundo.getImage();
@@ -64,6 +74,71 @@ public class MenuInicial extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
+
+        jDialog1.setSize(new java.awt.Dimension(391, 200));
+
+        jLabel1.setText("USER NAME:");
+
+        jLabel2.setText("SENHA:");
+
+        jButton1.setText("ENTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("SAIR");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPasswordField1)
+                    .addComponent(jTextField1))
+                .addGap(47, 47, 47))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 46, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENU PRINCIPAL");
@@ -128,6 +203,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         MenuOpcoes.add(jMenu4);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/voltar.png"))); // NOI18N
         jMenuItem4.setText("Voltar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,23 +379,60 @@ public class MenuInicial extends javax.swing.JFrame {
        //   MenuOpcoes.setForeground(Color.BLACK);
     }//GEN-LAST:event_MenuOpcoesMouseExited
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-     ACessoInicial a = new ACessoInicial();
-     a.setVisible(true);
-     this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-    Administrador a = new Administrador();
-    jDesktopPane2.add(a);
-    a.setVisible(true);
+    
+         if(FicheiroDat.leitura(("Admin.dat")).size()>0){
+           jDialog1.setVisible(true);
+           jDialog1.setLocationRelativeTo(null);
+        }else{
+           Administrador a = new Administrador();
+           jDesktopPane2.add(a);
+             a.setVisible(true);
+            
+        }
+  
     }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-       Administrador a = new Administrador();
-     //  a.listarAdmin();
-       //a.listarFunc();
+     //Administrador a = new Administrador();
+      
+      // a.listarAdmin();
+       //  a.listarFunc();
     }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        boolean encontradoAdmin=false;
+        boolean econtradoFunc = false;
+        String senhaTxt= new String(jPasswordField1.getPassword());
+
+        if(jTextField1.getText().equalsIgnoreCase("Admin")){
+            for(Object item:admin){
+                String userName=(String) ((AdministradorModel)item).getUserName();
+                String senha=(String)  ((AdministradorModel)item).getSenha();
+                if(userName.equalsIgnoreCase(jTextField1.getText())&&senha.equalsIgnoreCase((senhaTxt))){
+                    encontradoAdmin=true;
+                    Administrador m = new Administrador();
+                    jDesktopPane2.add(m);
+                    m.setVisible(true);
+                    jDialog1.setVisible(false);
+                   // this.setVisible(false);
+                    break;
+
+                }else{
+                    encontradoAdmin=false;
+                }
+            }
+        }
+        if(encontradoAdmin==false){
+            JOptionPane.showMessageDialog(null,"User name ou senha incorreto.");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        ACessoInicial a = new ACessoInicial();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,7 +473,12 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem LevantamentoItem;
     private javax.swing.JMenu MenuOpcoes;
     private javax.swing.JMenuItem devolucaoItem;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -374,6 +492,9 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
