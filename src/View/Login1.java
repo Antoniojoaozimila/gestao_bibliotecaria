@@ -31,6 +31,14 @@ public class Login1 extends javax.swing.JFrame {
     public Login1() {
         initComponents();
     }
+    
+    public String nivelAcesso(String pessoa){
+        String pessoa1=pessoa;
+        String pessoa2=pessoa;
+        
+        return "";
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +58,8 @@ public class Login1 extends javax.swing.JFrame {
         botaoSair = new javax.swing.JButton();
         txtSenha = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -148,6 +158,10 @@ public class Login1 extends javax.swing.JFrame {
             }
         });
 
+        jRadioButton1.setText("Administrador");
+
+        jRadioButton2.setText("Funcionario");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,11 +170,16 @@ public class Login1 extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoSair, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jRadioButton1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jRadioButton2))
                         .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE))
-                    .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -171,7 +190,10 @@ public class Login1 extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
                 .addGap(18, 18, 18)
                 .addComponent(botaoEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
@@ -254,13 +276,16 @@ public class Login1 extends javax.swing.JFrame {
          
 	*/  
        
-        ACessoInicial ac= new ACessoInicial();
+     //  ACessoInicial ac= new ACessoInicial();
+
        boolean encontradoAdmin=false;
        boolean econtradoFunc = false;
        String senhaTxt= new String(txtSenha.getPassword());
        
-       if(txtUsuario.getText().equalsIgnoreCase("Admin")){
-            for(Object item:admin){
+       //String nivelVer=nivelAcesso("Funcionario ");
+       
+       if(jRadioButton1.isSelected()){
+       for(Object item:admin){
        String userName=(String) ((AdministradorModel)item).getUserName();
        String senha=(String)  ((AdministradorModel)item).getSenha();
        if(userName.equalsIgnoreCase(txtUsuario.getText())&&senha.equalsIgnoreCase((senhaTxt))){
@@ -276,8 +301,8 @@ public class Login1 extends javax.swing.JFrame {
                 }
       
            
-       }else if(txtUsuario.getText().equalsIgnoreCase("Func")){
-            for(Object item:func){
+       }else if(jRadioButton2.isSelected()){
+      for(Object item:func){
       String userName2=(String) ((FuncionariosModel)item).getUserNameF();
       String senha2=(String)    ((FuncionariosModel)item).getSenha();
       if(userName2.equalsIgnoreCase(txtUsuario.getText())&&senha2.equalsIgnoreCase(senhaTxt)){
@@ -293,6 +318,8 @@ public class Login1 extends javax.swing.JFrame {
                      }
                 }
       
+       }else if(jRadioButton1.isSelected()&&jRadioButton2.isSelected()||!jRadioButton1.isSelected()&&!jRadioButton2.isSelected()){
+        JOptionPane.showMessageDialog(null,"Por favor retifique o acesso.");
        }
         
        if(encontradoAdmin==false&&econtradoFunc==false){
@@ -317,7 +344,7 @@ public class Login1 extends javax.swing.JFrame {
       if(jCheckBox1.isSelected()){
     	txtSenha.setEchoChar('\u0000');
     	
-    	}else {
+    	}else if(!jCheckBox1.isSelected()){
     		
           txtSenha.setEchoChar(previousEchoChar);
     	}
@@ -366,8 +393,12 @@ public class Login1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JPanel painel1;
     private javax.swing.JPasswordField txtSenha;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+ 
 }

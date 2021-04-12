@@ -296,9 +296,10 @@ public class ACessoInicial extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
      
-          if(FicheiroDat.leitura(("Admin.dat")).size()!=0){
-         Login1 l = new Login1();
-        l.setVisible(true);  
+       if(FicheiroDat.leitura(("Admin.dat")).size()!=0){
+       Login1 l = new Login1();
+       l.nivelAcesso("Funcionario");
+       l.setVisible(true);  
        }else{ JOptionPane.showMessageDialog(null,"Nenhum funcionario registado entre com admin para registar func...");
        }
       
@@ -314,6 +315,7 @@ public class ACessoInicial extends javax.swing.JFrame {
            jDialog1.setLocationRelativeTo(null);
         }else{
             Login1 l= new Login1(); l.setVisible(true);
+            l.nivelAcesso("Administrador");
             
         }
     }//GEN-LAST:event_jButton3ActionPerformed

@@ -23,6 +23,8 @@ import javax.swing.table.TableRowSorter;
 public class ManuaisVenda extends javax.swing.JInternalFrame {
    private DefaultTableModel  modelo;
    private TableRowSorter<TableModel> rowSorter;
+   private String caractereAceitavel = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
   
     /**
      * Creates new form ManuaisVenda
@@ -40,18 +42,21 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
      
     public ManuaisVenda() {
         initComponents();
-        
-           
+            
      String [] colunas = {"ID","Nome","Classe","Editora","Preço"};
      modelo = new DefaultTableModel();
      modelo.setColumnIdentifiers(colunas);
      jTable1.setModel(modelo);
      jTable1.setAutoCreateRowSorter(true);
+    
      
       rowSorter = new TableRowSorter<TableModel>(jTable1.getModel());
       jTable1.setRowSorter(rowSorter);
       
-         
+         /**
+          * metodo que permite fazer pesquisas dinamoicas em determinados campos de texto
+          *
+          */
         jTextField2.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -160,6 +165,12 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Editora");
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Preço:");
@@ -320,7 +331,6 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
         });
 
         jTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("Pesquise pelo Manual com base em qualquer dado");
         jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField2FocusGained(evt);
@@ -451,15 +461,17 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
-        if(jTextField2.getText().equals("Pesquise pelo Manual com base em qualquer dado")){
+/*        if(jTextField2.getText().equals("Pesquise pelo Manual com base em qualquer dado")){
             jTextField2.setText("");
-            jTextField2.setForeground(new Color(153,153,153));  }  
+            jTextField2.setForeground(new Color(153,153,153));  }
+*/
     }//GEN-LAST:event_jTextField2FocusGained
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-       if(jTextField2.getText().equals("")){
+      /* if(jTextField2.getText().equals("")){
             jTextField2.setText("Pesquise pelo Manual com base em qualquer dado");
             jTextField2.setForeground(new Color(153,153,153));  } 
+*/
     }//GEN-LAST:event_jTextField2FocusLost
 
     private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
@@ -491,6 +503,19 @@ public class ManuaisVenda extends javax.swing.JInternalFrame {
       jButton6.setBackground(new Color(255,0,0));
       jButton6.setForeground(Color.WHITE);
     }//GEN-LAST:event_jButton6MouseExited
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+ if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            //SE FOR FALSO E CHAMADO O METODO consume();  RESPONSAVEL POR 
+            //ABORTAR O EFEITO DA ACCAO FAZENDO COM QUE UM EVENTO KEYTYPED SEJA 
+            //IGNORADO
+            evt.consume();
+        }        // TODO add your handling code here:
+                                   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

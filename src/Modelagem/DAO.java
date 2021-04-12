@@ -29,7 +29,8 @@ public class DAO {
        // JOptionPane.showMessageDialog(null,"gravado com sucesso");
             
         } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null,"Não foi possivel gravar.");
+        //JOptionPane.showMessageDialog(null,"Não foi possivel gravar.");
+        ex.printStackTrace();
         }
     } 
     

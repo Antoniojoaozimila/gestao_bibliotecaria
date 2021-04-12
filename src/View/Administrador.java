@@ -20,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class Administrador extends javax.swing.JInternalFrame {
    private DefaultTableModel  modelo,modelo1;
+   private String caractereAceitavel = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+ 
   // ArrayList<Object> admin = FicheiroDat.leitura(getClass().getResource("/Ficheiros/Admin.dat").getPath()); 
     ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat")); 
   // ArrayList<Object> func = FicheiroDat.leitura(getClass().getResource("/Ficheiros/func.dat").getPath()); 
@@ -180,6 +182,11 @@ public class Administrador extends javax.swing.JInternalFrame {
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
             }
         });
 
@@ -357,6 +364,12 @@ public class Administrador extends javax.swing.JInternalFrame {
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("NOME:");
+
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("CONTACTO:");
@@ -635,6 +648,28 @@ public class Administrador extends javax.swing.JInternalFrame {
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
 //     listarFunc();
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+         if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            //SE FOR FALSO E CHAMADO O METODO consume();  RESPONSAVEL POR 
+            //ABORTAR O EFEITO DA ACCAO FAZENDO COM QUE UM EVENTO KEYTYPED SEJA 
+            //IGNORADO
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+ if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            //SE FOR FALSO E CHAMADO O METODO consume();  RESPONSAVEL POR 
+            //ABORTAR O EFEITO DA ACCAO FAZENDO COM QUE UM EVENTO KEYTYPED SEJA 
+            //IGNORADO
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

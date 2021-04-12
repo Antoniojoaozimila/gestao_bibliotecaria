@@ -20,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Venda extends javax.swing.JInternalFrame {
 private DefaultTableModel  modelo;
+ private String caractereAceitavel = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
 
      public void popular(){
     DAO dao = new DAO();
@@ -109,6 +111,12 @@ private DefaultTableModel  modelo;
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel3.setText("Nome:");
+
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         jLabel4.setText("Contacto:");
 
@@ -289,6 +297,17 @@ private DefaultTableModel  modelo;
  
     }else JOptionPane.showMessageDialog(null,"Primeiro Selecione o Manual");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+ if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            //SE FOR FALSO E CHAMADO O METODO consume();  RESPONSAVEL POR 
+            //ABORTAR O EFEITO DA ACCAO FAZENDO COM QUE UM EVENTO KEYTYPED SEJA 
+            //IGNORADO
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

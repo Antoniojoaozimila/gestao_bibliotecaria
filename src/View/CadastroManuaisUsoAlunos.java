@@ -27,6 +27,8 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
      */
        private DefaultTableModel  modelo;
        private TableRowSorter<TableModel> rowSorter;
+       private String caractereAceitavel = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
   
     
     public void popular(){
@@ -162,6 +164,12 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Location:");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione a classe", "8 Classe", "9 Classe", "10 Classe", "11 Classe", "12 Classe" }));
         jComboBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -223,7 +231,6 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pesquisar pelo Manual", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("Pesquise o manual com base em qualquer dado");
         jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField2FocusGained(evt);
@@ -382,17 +389,20 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
-           if(jTextField2.getText().equals("Pesquise o manual com base em qualquer dado")){
+         /*  if(jTextField2.getText().equals("Pesquise o manual com base em qualquer dado")){
             jTextField2.setText("");
-            jTextField2.setForeground(new Color(153,153,153));     
-        }
+            jTextField2.setForeground(new Color(153,153,153));    
+*/
+//        }
+
     }//GEN-LAST:event_jTextField2FocusGained
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
-         if(jTextField2.getText().equals("")){
+      /*   if(jTextField2.getText().equals("")){
             jTextField2.setText("Pesquise o manual com base em qualquer dado");
             jTextField2.setForeground(new Color(153,153,153));     
         }
+*/
     }//GEN-LAST:event_jTextField2FocusLost
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -406,15 +416,13 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
      editora=jComboBox2.getSelectedItem().toString();
      loc=jComboBox3.getSelectedItem().toString();
      
-     //passando os dados para o ficheiro dat
-
-     //gravando os dados no banco de dados
+     if(classe.equalsIgnoreCase("Selecione a classe")||editora.equalsIgnoreCase("Selecione a editora")||loc.equalsIgnoreCase("Selecione a pratileira")){
+     JOptionPane.showMessageDialog(null,"Caixa vazia...");
+     }else{
       Manuais m1 =new Manuais(nome,classe,editora,loc);
       DAO.guardar(m1);
-      
-     //passando o ultimo dados cadastrado para tabela
-       popular();
-      JOptionPane.showMessageDialog(null,"gravado com sucesso");
+      popular();
+     }
      
       
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -497,6 +505,14 @@ public class CadastroManuaisUsoAlunos extends javax.swing.JInternalFrame {
         jButton3.setBackground(new Color(204,0,0));
         jButton3.setForeground(Color.WHITE);
     }//GEN-LAST:event_jButton3MouseExited
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+  if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

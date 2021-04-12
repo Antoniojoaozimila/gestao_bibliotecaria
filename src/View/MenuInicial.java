@@ -49,12 +49,12 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        ImageIcon imgFundo = new ImageIcon(getClass().getResource("/PapeisDEParede/Fundo.jpg"));
+        ImageIcon imgFundo = new ImageIcon(getClass().getResource("/PapeisDEParede/LIB.jpg"));
         Image image=imgFundo.getImage();
         jDesktopPane2 = new javax.swing.JDesktopPane(){
-            public void paintComponent(Graphics g) {
-                g.drawImage(image,0,0,getWidth(),getHeight(),this);
-            }
+            //  public void paintComponent(Graphics g) {
+                //  g.drawImage(image,0,0,getWidth(),getHeight(),this);
+                //  }
 
         };
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -153,7 +153,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -181,8 +181,10 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         });
         MenuOpcoes.add(jSeparator1);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/livros.png"))); // NOI18N
         jMenu4.setText("Cadastros de Manuais para");
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/alunosR.png"))); // NOI18N
         jMenuItem2.setText("Estudantes");
         jMenuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +251,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
             }
         });
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/alunos.png"))); // NOI18N
         jMenuItem1.setText("Alunos");
         jMenuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -269,6 +272,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
 
         jMenuBar1.add(jMenu1);
 
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/pagamentos.png"))); // NOI18N
         jMenu6.setText("Vendas");
         jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -278,6 +282,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         });
         jMenuBar1.add(jMenu6);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/funcionario.png"))); // NOI18N
         jMenu5.setText("Administrador");
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

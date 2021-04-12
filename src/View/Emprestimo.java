@@ -9,6 +9,7 @@ import Modelagem.DAO;
 import Modelagem.Estudantes;
 import Modelagem.Manuais;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,6 +18,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Emprestimo extends javax.swing.JInternalFrame {
     private DefaultTableModel  modelo;
+    private String caractereAceitavel = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
 
     public void popularEstudantes(){
     DAO dao = new DAO();
@@ -126,6 +129,12 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Nome:");
 
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Sexo:");
 
@@ -137,6 +146,12 @@ public class Emprestimo extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Residencia:");
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Contacto:");
@@ -488,13 +503,24 @@ public class Emprestimo extends javax.swing.JInternalFrame {
       
    
      manual1=jComboBox1.getSelectedItem().toString();
+     if(manual1.equalsIgnoreCase("Selecione um Manual")){
+         JOptionPane.showMessageDialog(null, "Selecione o Primeiro manual...");
+     }
    
      classe1=jComboBox2.getSelectedItem().toString();
+   if(classe1.equalsIgnoreCase("Selecione a Classe")){
+         JOptionPane.showMessageDialog(null, "Selecione a Classe do primeiro Manual...");
+     }
    
      manual2=jComboBox1.getSelectedItem().toString();
-     
+      if(manual2.equalsIgnoreCase("Selecione um Manual")){
+        manual2=null;
+     }
      classe2=jComboBox2.getSelectedItem().toString();
-   
+     if(classe2.equalsIgnoreCase("Selecione a Classe")){
+         classe2=null;
+     }
+    
      int tempoComManual=0;
      String dataLevanta=jFormattedTextField2.getText();
      String datadevolucao="";
@@ -517,8 +543,10 @@ public class Emprestimo extends javax.swing.JInternalFrame {
       System.out.println(diaL);
       mesL=Integer.parseInt(mesLe);//mes que vai levantar em inteiro
       anoL=Integer.parseInt(anoLe);//ano que vai levantar em inteiro
-    
-     if(jComboBox3.getSelectedIndex()==1){
+      
+      if(jComboBox3.getSelectedIndex()==0){
+          JOptionPane.showMessageDialog(null,"Selecione o tempo de uso...");
+      }else if(jComboBox3.getSelectedIndex()==1){
         tempoComManual=7;
         diaD=diaL+tempoComManual; // dia que devo devolver manual
       System.out.println("dia devolucao:."+diaD);
@@ -725,6 +753,31 @@ public class Emprestimo extends javax.swing.JInternalFrame {
         jButton2.setBackground(new Color(204,0,0));
         jButton2.setForeground(Color.WHITE);
     }//GEN-LAST:event_jButton2MouseExited
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+ if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            //SE FOR FALSO E CHAMADO O METODO consume();  RESPONSAVEL POR 
+            //ABORTAR O EFEITO DA ACCAO FAZENDO COM QUE UM EVENTO KEYTYPED SEJA 
+            //IGNORADO
+            evt.consume();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+   // TODO add your handling code here:
+   if (caractereAceitavel.contains(evt.getKeyChar() + "") || evt.getKeyChar() == ' ') {
+
+        } else {
+            //SE FOR FALSO E CHAMADO O METODO consume();  RESPONSAVEL POR 
+            //ABORTAR O EFEITO DA ACCAO FAZENDO COM QUE UM EVENTO KEYTYPED SEJA 
+            //IGNORADO
+            evt.consume();
+        }        // TODO add your handling code here:
+                                      
+
+    }//GEN-LAST:event_jTextField2KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
