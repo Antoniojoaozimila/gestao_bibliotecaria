@@ -1,0 +1,60 @@
+   CODIGO DO MANUAL COMPRADO: 2
+
+   NOME CLIENTE.............: Jose Antonio
+
+   CONTACTO CLIENTE.........: +258 84 533 4234
+
+   MANUAL COMPRADO..........: Biologia
+
+   CLASSE...................: 9 Classe
+
+   EDITORA..................: LongMan
+
+   PREÇO DO MANUAL..........: 400
+
+   VALOR PAGO PELO CLIENTE..: 500
+
+   TROCOS...................: 100
+
+=====================================================================================================
+
+   CODIGO DO MANUAL COMPRADO: 5
+
+   NOME CLIENTE.............: Antonio joao zimila
+
+   CONTACTO CLIENTE.........: +258 84 567 6767
+
+   MANUAL COMPRADO..........: Biologia
+
+   CLASSE...................: 10 Classe
+
+   EDITORA..................: Texto Editores
+
+   PREÇO DO MANUAL..........: 500
+
+   VALOR PAGO PELO CLIENTE..: 400
+
+   TROCOS...................: -100
+
+=====================================================================================================
+
+   CODIGO DO MANUAL COMPRADO: 4
+
+   NOME CLIENTE.............: Antonio joao zimila
+
+   CONTACTO CLIENTE.........: +258 84 562 5067
+
+   MANUAL COMPRADO..........: Matematica
+
+   CLASSE...................: 9 Classe
+
+   EDITORA..................: LongMan
+
+   PREÇO DO MANUAL..........: 500
+
+   VALOR PAGO PELO CLIENTE..: 5000
+
+   TROCOS...................: 4500
+
+=====================================================================================================
+

@@ -1,0 +1,40 @@
+   CODIGO DO MANUAL COMPRADO: 1
+
+   NOME CLIENTE.............: Jose Antonio
+
+   CONTACTO CLIENTE.........: +258 23 232 3232
+
+   MANUAL COMPRADO..........: Portugues
+
+   CLASSE...................: 8 Classe
+
+   EDITORA..................: Plural
+
+   PREÇO DO MANUAL..........: 300
+
+   VALOR PAGO PELO CLIENTE..: 300
+
+   TROCOS...................: 0
+
+=====================================================================================================
+
+   CODIGO DO MANUAL COMPRADO: 3
+
+   NOME CLIENTE.............: sdsdasd
+
+   CONTACTO CLIENTE.........: +258 24 323 4234
+
+   MANUAL COMPRADO..........: Fisica
+
+   CLASSE...................: 12 Classe
+
+   EDITORA..................: Texto Editores
+
+   PREÇO DO MANUAL..........: 500
+
+   VALOR PAGO PELO CLIENTE..: 20000
+
+   TROCOS...................: 19500
+
+=====================================================================================================
+

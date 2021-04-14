@@ -1,0 +1,40 @@
+  CODIGO...............: 6
+
+  NOME.................: Jose pedro
+
+  MANUAL_1 LEVANTADO...: Portugues
+
+  CLASSE_1.............: 9 Classe
+
+  MANUAL_2 LEVANTADO...: Portugues
+
+  CLASSE_2.............: 9 Classe
+
+  DATA DE LEVANTAMENTO.: 2021-04-12
+
+  DATA DE DEVOLUCAO....: 2021-04-019
+
+  STATUS...............: DEVOLVIDO A TEMPO UTIL
+
+=====================================================================================================
+
+  CODIGO...............: 7
+
+  NOME.................: Antonio joao
+
+  MANUAL_1 LEVANTADO...: Portugues
+
+  CLASSE_1.............: 8 Classe
+
+  MANUAL_2 LEVANTADO...: null
+
+  CLASSE_2.............: null
+
+  DATA DE LEVANTAMENTO.: 2021-04-12
+
+  DATA DE DEVOLUCAO....: 2021-04-019
+
+  STATUS...............: DEVOLVIDO A TEMPO UTIL
+
+=====================================================================================================
+

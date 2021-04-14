@@ -178,9 +178,9 @@ public class Devolucao extends javax.swing.JInternalFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addGap(89, 89, 89)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -263,7 +263,7 @@ public class Devolucao extends javax.swing.JInternalFrame {
  }else status="DEVOLVIDO COM ATRASO";
 
    try{
-   RelatorioTXT.escritaAlunos(getClass().getResource("/Ficheiros/AlunosDelucoes.dat").getPath(),
+   RelatorioTXT.escritaAlunos(("AlunosDelucoes.txt"),
    id,nome,manual1,classe1,manual2,classe2,dataL,dataD,status);
    
    modelo.removeRow(jTable1.getSelectedRow());

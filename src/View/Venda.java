@@ -281,21 +281,30 @@ private DefaultTableModel  modelo;
  String editora=modelo.getValueAt(linha,3).toString();
  int preco=Integer.parseInt(modelo.getValueAt(linha,4).toString().substring(0,3));
  trocoLabel=Integer.toString(valorAPagar-preco);
- jLabel8.setText(trocoLabel+".00 MZN");
+ int vertroco=Integer.parseInt(trocoLabel);
+ if(valorAPagar<preco){
+     JOptionPane.showMessageDialog(null,"Nao é possivel efectuar a compra...");
+     
+ }else{
+     jLabel8.setText(trocoLabel+".00 MZN");
  modelo.removeRow(linha);//remove a lihna na tabela
  Manuais m = new Manuais();
  m.setId(id);
  DAO.deletarManuaisVenda(m);//removendo manual comprado na base de dados
         try {
             //relatorio da venda
-            RelatorioTXT.escritaManuaisVendidos(getClass().getResource("/Ficheiros/RelatorioVendas.txt").getPath(), id, nomeCliente, contacto, nomeManual, classe, editora, preco, valorAPagar, trocoLabel);
+            RelatorioTXT.escritaManuaisVendidos(("RelatorioVendas.txt"), id, nomeCliente, contacto, nomeManual, classe, editora, preco, valorAPagar, trocoLabel);
         } catch (IOException ex) {
             Logger.getLogger(Venda.class.getName()).log(Level.SEVERE, null, ex);
         }
  
  
  
-    }else JOptionPane.showMessageDialog(null,"Primeiro Selecione o Manual");
+    
+ }
+ }else {JOptionPane.showMessageDialog(null,"Primeiro Selecione o Manual");
+ }   
+ 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped

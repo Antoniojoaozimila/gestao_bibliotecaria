@@ -295,11 +295,11 @@ public class Emprestimo extends javax.swing.JInternalFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(126, 126, 126)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                         .addGap(35, 35, 35)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                         .addGap(77, 77, 77)))
                 .addContainerGap())
         );
@@ -512,11 +512,11 @@ public class Emprestimo extends javax.swing.JInternalFrame {
          JOptionPane.showMessageDialog(null, "Selecione a Classe do primeiro Manual...");
      }
    
-     manual2=jComboBox1.getSelectedItem().toString();
+     manual2=jComboBox4.getSelectedItem().toString();
       if(manual2.equalsIgnoreCase("Selecione um Manual")){
         manual2=null;
      }
-     classe2=jComboBox2.getSelectedItem().toString();
+     classe2=jComboBox5.getSelectedItem().toString();
      if(classe2.equalsIgnoreCase("Selecione a Classe")){
          classe2=null;
      }

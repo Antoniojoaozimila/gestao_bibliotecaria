@@ -48,6 +48,9 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         ImageIcon imgFundo = new ImageIcon(getClass().getResource("/PapeisDEParede/LIB.jpg"));
         Image image=imgFundo.getImage();
@@ -72,6 +75,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -139,6 +143,12 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 46, Short.MAX_VALUE))
         );
+
+        jMenu7.setText("File");
+        jMenuBar2.add(jMenu7);
+
+        jMenu8.setText("Edit");
+        jMenuBar2.add(jMenu8);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MENU PRINCIPAL");
@@ -296,6 +306,9 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
         });
         jMenuBar1.add(jMenu5);
 
+        jMenu9.setText("Estatisticas");
+        jMenuBar1.add(jMenu9);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,7 +354,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
           try{
-      Runtime.getRuntime().exec("notepad Alunos.txt"); 
+      Runtime.getRuntime().exec("notepad AlunosDelucoes.txt"); 
         }catch(IOException e){
         System.err.println("erro");  
         }
@@ -371,7 +384,7 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
          try{
-      Runtime.getRuntime().exec("notepad RelatorioVenda.txt"); 
+      Runtime.getRuntime().exec("notepad RelatorioVendas.txt"); 
         }catch(IOException e){
         System.err.println("erro");  
         }
@@ -490,7 +503,11 @@ ArrayList<Object> admin = FicheiroDat.leitura(("Admin.dat"));
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
